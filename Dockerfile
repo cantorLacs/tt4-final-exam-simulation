@@ -1,7 +1,7 @@
 # Stage 1 (BUILD)
 FROM node:lts-alpine AS builder
 
-# inside of image/containaer
+# inside of image/container
 WORKDIR /app
 
 COPY ./frontend/package*.json /app/

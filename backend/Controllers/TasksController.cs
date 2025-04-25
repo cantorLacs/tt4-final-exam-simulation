@@ -1,12 +1,12 @@
+using Backend.Data;
+using Backend.Models;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
+
 namespace Backend.Controllers
 {
-    using Backend.Data;
-    using Backend.Models;
-    using Microsoft.AspNetCore.Mvc;
-    using Microsoft.EntityFrameworkCore;
-
     [ApiController]
-    [Route("/[controller]")]
+    [Route("[controller]")]  // Changed from "api/[controller]" since nginx strips the api prefix
     public class TasksController : ControllerBase
     {
         private readonly AppDbContext _context;
@@ -58,6 +58,5 @@ namespace Backend.Controllers
             await _context.SaveChangesAsync();
             return NoContent();
         }
-
     }
 }
